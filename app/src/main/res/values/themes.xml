@@ -24,6 +24,9 @@
     <style name="iconColor">
         <item name="android:tint">#000000</item>
     </style>
+    <style name="formBg">
+        <item name="backgroundColor">#2A4B7C</item>
+    </style>
 
 
 

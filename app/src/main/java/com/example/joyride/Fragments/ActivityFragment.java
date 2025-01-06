@@ -2,12 +2,14 @@ package com.example.joyride.Fragments;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -17,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.joyride.Activities.BookingActivity;
 import com.example.joyride.Adapters.ActivityAdapter;
 import com.example.joyride.AlertDialogs.BookingDialog;
 import com.example.joyride.Models.ActivityItem;
@@ -40,11 +43,18 @@ public class ActivityFragment extends Fragment {
     private Calendar calendar;
     private SimpleDateFormat dateFormat;
     private String selectedDate;
+    private ImageButton addActivity;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_activity, container, false);
+        View view = inflater.inflate(R.layout.fragment_activity, container, false);
+        addActivity = (ImageButton) view.findViewById(R.id.add_activity);
+        addActivity.setOnClickListener(view1 -> {
+           Intent intent = new Intent(getContext(),BookingActivity.class);
+           startActivity(intent);
+        });
+        return view;
     }
 
     @Override

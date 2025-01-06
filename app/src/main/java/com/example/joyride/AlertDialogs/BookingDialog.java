@@ -22,12 +22,4 @@ public class BookingDialog {
         dialog.show();
     }
 
-    public void addBookingModal(){
-        AlertDialog.Builder dialog = new AlertDialog.Builder(context);
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View dialogView = inflater.inflate(R.layout.add_activity_modal,null);
-        dialog.setView(dialogView);
-        dialog.setCancelable(true);
-        dialog.show();
-    }
 }

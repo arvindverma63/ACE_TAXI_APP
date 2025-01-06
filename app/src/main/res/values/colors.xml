@@ -19,4 +19,5 @@
     <color name="primaryBackground">#FFFFFF</color>
     <color name="activeColor">#FF6200EE</color> <!-- Example color for active state -->
     <color name="inactiveColor">#FFBDBDBD</color> <!-- Example color for inactive state -->
+    <color name="buttonRed">#CC0000</color>
 </resources>

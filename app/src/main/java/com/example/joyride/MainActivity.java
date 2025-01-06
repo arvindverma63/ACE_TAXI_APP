@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Request notification permission for Android 13+
         requestNotificationPermission();
-
         // Fetch FCM token
         fetchFCMToken();
     }
