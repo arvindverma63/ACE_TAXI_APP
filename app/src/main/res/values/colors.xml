@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primary">#41B06E</color>
+    <color name="primary_bg">#FAFAFA</color>
+    <color name="gray">#5D5D5D</color>
+
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="backgroundLight">#FFFFFF</color>
+    <color name="textColorPrimaryLight">#000000</color>
+    <color name="textColorSecondaryLight">#757575</color>
+    <color name="cardBackgroundLight">#FFFFFF</color>
+    <color name="none">#00000000</color>
+    <color name="ripple_color">#66FFFFFF</color>
+    <color name="primaryBackground">#FFFFFF</color>
+    <color name="activeColor">#FF6200EE</color> <!-- Example color for active state -->
+    <color name="inactiveColor">#FFBDBDBD</color> <!-- Example color for inactive state -->
+</resources>
