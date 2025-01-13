@@ -4,12 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="20dp"
     android:orientation="vertical"
-    android:padding="16dp"
     style="@style/formBg">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.MaterialComponents.ActionBar">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Booking Form"
+            app:titleTextColor="@color/white"
+            app:subtitle="Fill out the details below"
+            app:subtitleTextColor="@color/white"
+            app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"
+            android:background="@color/buttonRed" />
+    </com.google.android.material.appbar.AppBarLayout>
     <ScrollView
+        android:padding="16dp"
         android:layout_width="match_parent"
         android:scrollbars="none"
         android:layout_height="wrap_content">

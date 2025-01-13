@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.joyride.Fragments.ActivityFragment;
+import com.example.joyride.Fragments.FutureFregment;
 import com.example.joyride.Fragments.HistoryFragment;
 import com.example.joyride.Fragments.HomeFragment;
 import com.example.joyride.Fragments.ProfileFragment;
@@ -36,6 +37,9 @@ public class HomeActivity extends AppCompatActivity {
                 selectedFragment = new ActivityFragment();
             } else if (item.getItemId() == R.id.nav_profile) {
                 selectedFragment = new ProfileFragment();
+            }
+            else if (item.getItemId() == R.id.nav_future){
+                selectedFragment = new FutureFregment();
             }
             else if(item.getItemId() == R.id.nav_history){
                 selectedFragment = new HistoryFragment();

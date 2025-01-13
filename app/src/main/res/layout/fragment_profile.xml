@@ -30,6 +30,15 @@
                 android:padding="16dp"
                 android:gravity="center">
 
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_bar"
+                    style="@style/iconColor"
+                    android:background="@color/none"
+                    android:id="@+id/nav_icon"
+                    android:layout_marginLeft="150dp"/>
+
                 <!-- Profile Picture -->
                 <ImageView
                     android:id="@+id/imageViewProfilePicture"
@@ -167,7 +176,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:text="Edit Profile"
+                app:icon="@drawable/ic_settings"
+                android:text="Settings"
                 app:cornerRadius="16dp"
                 app:backgroundTint="@color/primary"
                 android:textColor="@color/white" />

@@ -46,16 +46,13 @@
             android:name=".Activities.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".Activities.LoginActivity"
-            android:exported="false" />
-        <activity
             android:name=".sliders.FinalSlider"
             android:exported="false" />
         <activity
             android:name=".sliders.Slider2"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

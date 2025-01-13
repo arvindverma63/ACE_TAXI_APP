@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_statement"
+        android:icon="@drawable/ic_pound"
+        android:title="Statements" />
+    <item
+        android:id="@+id/menu_earnings"
+        android:icon="@drawable/ic_earnings"
+        android:title="Earnings" />
+    <item
+        android:id="@+id/menu_documents"
+        android:icon="@drawable/ic_documents"
+        android:title="Documents" />
+</menu>
