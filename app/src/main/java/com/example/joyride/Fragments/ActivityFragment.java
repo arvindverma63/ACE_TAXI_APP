@@ -20,8 +20,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.joyride.Activities.BookingActivity;
+import com.example.joyride.Activities.LoginActivity;
 import com.example.joyride.Adapters.ActivityAdapter;
 import com.example.joyride.AlertDialogs.BookingDialog;
+import com.example.joyride.Logics.SessionManager;
 import com.example.joyride.Models.ActivityItem;
 import com.example.joyride.R;
 import com.google.android.material.textfield.TextInputEditText;
@@ -49,6 +51,11 @@ public class ActivityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_activity, container, false);
+        SessionManager sessionManager = new SessionManager(getContext());
+        if(!sessionManager.isLoggedIn()){
+            Intent intent = new Intent(getContext(), LoginActivity.class);
+            startActivity(intent);
+        }
         addActivity = (ImageButton) view.findViewById(R.id.add_activity);
         addActivity.setOnClickListener(view1 -> {
            Intent intent = new Intent(getContext(),BookingActivity.class);

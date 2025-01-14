@@ -1,10 +1,14 @@
 package com.example.joyride.Activities;
 
 
+import static android.content.ContentValues.TAG;
+
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -15,8 +19,11 @@ import com.example.joyride.Fragments.FutureFregment;
 import com.example.joyride.Fragments.HistoryFragment;
 import com.example.joyride.Fragments.HomeFragment;
 import com.example.joyride.Fragments.ProfileFragment;
+import com.example.joyride.Logics.FCMTokenManager;
+import com.example.joyride.Logics.SessionManager;
 import com.example.joyride.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -25,6 +32,13 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        fetchFCMToken();
+        SessionManager sessionManager = new SessionManager(this);
+        if(!sessionManager.isLoggedIn()){
+            Intent intent = new Intent(this,LoginActivity.class);
+            startActivity(intent);
+        }
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
@@ -70,4 +84,25 @@ public class HomeActivity extends AppCompatActivity {
             }
         }
     }
+    private void fetchFCMToken() {
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful() && task.getResult() != null) {
+                        String token = task.getResult();
+                        Log.d(TAG, "FCM Token: " + token);
+                        FCMTokenManager fcmTokenManager = new FCMTokenManager(this);
+                        fcmTokenManager.setToken(token);
+                        // Optionally send the token to a server for device registration
+                        sendTokenToServer(token);
+                    } else {
+                        Log.e(TAG, "Failed to fetch FCM token", task.getException());
+                    }
+                });
+    }
+    // Stub for sending the token to the server (implement as needed)
+    private void sendTokenToServer(String token) {
+        // Example: Send token to your backend server
+        Log.d(TAG, "Token sent to server: " + token);
+    }
+
 }

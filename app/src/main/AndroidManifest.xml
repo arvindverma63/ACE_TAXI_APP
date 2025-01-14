@@ -27,6 +27,8 @@
         <activity
             android:name=".Activities.NotificationModalActivity"
             android:exported="false" />
+        <activity android:name=".Activities.LoginActivity"
+            android:exported="false"/>
 
         <service
             android:name=".Logics.Services.LocationService"
@@ -43,16 +45,13 @@
         </service>
 
         <activity
-            android:name=".Activities.HomeActivity"
-            android:exported="false" />
-        <activity
             android:name=".sliders.FinalSlider"
             android:exported="false" />
         <activity
             android:name=".sliders.Slider2"
             android:exported="false" />
         <activity
-            android:name=".Activities.LoginActivity"
+            android:name=".Activities.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

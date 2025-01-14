@@ -1,5 +1,6 @@
 package com.example.joyride.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,12 +9,15 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.joyride.Activities.LoginActivity;
 import com.example.joyride.Logics.LoginManager;
+import com.example.joyride.Logics.SessionManager;
 import com.example.joyride.Models.UserProfileResponse;
 import com.example.joyride.R;
 
@@ -23,6 +27,7 @@ public class ProfileFragment extends Fragment {
     private TextView phoneNumber;
     private TextView email;
     private ImageButton navIcon;
+    private Button buttonLogout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,6 +39,11 @@ public class ProfileFragment extends Fragment {
         phoneNumber = view.findViewById(R.id.textViewDriverPhone);
         email = view.findViewById(R.id.textViewDriverEmail);
         navIcon = view.findViewById(R.id.nav_icon);
+        SessionManager sessionManager = new SessionManager(getContext());
+        if(!sessionManager.isLoggedIn()){
+            Intent intent = new Intent(getContext(),LoginActivity.class);
+            startActivity(intent);
+        }
 
         // Handle navigation icon click for the popup menu
         navIcon.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +94,12 @@ public class ProfileFragment extends Fragment {
                 // Show error message
                 Toast.makeText(getContext(), "Failed to fetch profile: " + errorMessage, Toast.LENGTH_SHORT).show();
             }
+        });
+        buttonLogout = view.findViewById(R.id.buttonLogout);
+        buttonLogout.setOnClickListener(view1 -> {
+            sessionManager.clearSession();
+            Intent intent = new Intent(getContext(), LoginActivity.class);
+            startActivity(intent);
         });
 
         return view;

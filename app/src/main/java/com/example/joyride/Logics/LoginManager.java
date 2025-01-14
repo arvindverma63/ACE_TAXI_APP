@@ -53,10 +53,8 @@ public class LoginManager {
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     context.startActivity(intent);
                 } else {
-                    Toast.makeText(context, "Login Failed: " + response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Incorrect Username Or Password: " + response.message(), Toast.LENGTH_SHORT).show();
                     progressDialog.hide();
-                    Intent intent = new Intent(context, HomeActivity.class);
-                    context.startActivity(intent);
                 }
             }
 

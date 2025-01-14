@@ -1,5 +1,6 @@
 package com.example.joyride.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,7 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.joyride.Activities.LoginActivity;
 import com.example.joyride.Adapters.FutureRideAdapter;
+import com.example.joyride.Logics.SessionManager;
 import com.example.joyride.Models.FutureRide;
 import com.example.joyride.R;
 
@@ -38,6 +41,11 @@ public class FutureFregment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_future_fregment, container, false);
+        SessionManager sessionManager = new SessionManager(getContext());
+        if(!sessionManager.isLoggedIn()){
+            Intent intent = new Intent(getContext(), LoginActivity.class);
+            startActivity(intent);
+        }
 
         // Initialize RecyclerView
         recyclerViewFuture = view.findViewById(R.id.recyclerViewFuture);
